@@ -6,7 +6,7 @@ metadata:
     name: app-service
     app: server
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 80
       targetPort: 8080
