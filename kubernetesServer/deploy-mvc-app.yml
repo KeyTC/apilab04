@@ -1,0 +1,25 @@
+apiVersion: servers/v1
+kind: Deployment
+metadata:
+  name: app-deploy
+  labels:
+    name: app-deploy
+    app: server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: server
+      type: mvc
+  template:
+    metadata:
+      name: app-pod
+      labels:
+        app: server
+        type: mvc
+    spec:
+      containers:
+        - name: app-pod
+          image: keylor/apilab03:v1
+          ports:
+            - containerPort: 8080
